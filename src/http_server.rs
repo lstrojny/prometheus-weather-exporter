@@ -153,7 +153,7 @@ impl UnauthorizedResponse {
             response: "Authentication required. No credentials provided",
             authenticate: Header::new(
                 "www-authenticate",
-                format!(r##"Basic realm="{NAME}", charset="UTF-8""##),
+                format!(r#"Basic realm="{NAME}", charset="UTF-8""#),
             ),
         }
     }
