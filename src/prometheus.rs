@@ -166,11 +166,11 @@ mod tests {
             Format::Prometheus,
             vec![create_weather(None, None)],
             &format!(
-                r##"# HELP weather_temperature_celsius prometheus-weathermen temperature.
+                r#"# HELP weather_temperature_celsius prometheus-weathermen temperature.
 # TYPE weather_temperature_celsius gauge
 # UNIT weather_temperature_celsius celsius
 weather_temperature_celsius{{version="{VERSION}",source="org.example",location="My Name",city="Some City",latitude="20.1000000",longitude="10.0123400"}} 25.5
-# EOF"##
+# EOF"#
             ),
         );
     }
@@ -181,7 +181,7 @@ weather_temperature_celsius{{version="{VERSION}",source="org.example",location="
             Format::Prometheus,
             vec![create_weather(Some(Fraction(0.55_f64)), None)],
             &format!(
-                r##"# HELP weather_temperature_celsius prometheus-weathermen temperature.
+                r#"# HELP weather_temperature_celsius prometheus-weathermen temperature.
 # TYPE weather_temperature_celsius gauge
 # UNIT weather_temperature_celsius celsius
 weather_temperature_celsius{{version="{VERSION}",source="org.example",location="My Name",city="Some City",latitude="20.1000000",longitude="10.0123400"}} 25.5
@@ -189,7 +189,7 @@ weather_temperature_celsius{{version="{VERSION}",source="org.example",location="
 # TYPE weather_relative_humidity_ratio gauge
 # UNIT weather_relative_humidity_ratio ratio
 weather_relative_humidity_ratio{{version="{VERSION}",source="org.example",location="My Name",city="Some City",latitude="20.1000000",longitude="10.0123400"}} 0.55
-# EOF"##
+# EOF"#
             ),
         );
     }
@@ -200,7 +200,7 @@ weather_relative_humidity_ratio{{version="{VERSION}",source="org.example",locati
             Format::Prometheus,
             vec![create_weather(None, Some(100.1_f64.into()))],
             &format!(
-                r##"# HELP weather_temperature_celsius prometheus-weathermen temperature.
+                r#"# HELP weather_temperature_celsius prometheus-weathermen temperature.
 # TYPE weather_temperature_celsius gauge
 # UNIT weather_temperature_celsius celsius
 weather_temperature_celsius{{version="{VERSION}",source="org.example",location="My Name",city="Some City",latitude="20.1000000",longitude="10.0123400"}} 25.5
@@ -208,7 +208,7 @@ weather_temperature_celsius{{version="{VERSION}",source="org.example",location="
 # TYPE weather_station_distance_meters gauge
 # UNIT weather_station_distance_meters meters
 weather_station_distance_meters{{version="{VERSION}",source="org.example",location="My Name",city="Some City",latitude="20.1000000",longitude="10.0123400"}} 100.1
-# EOF"##
+# EOF"#
             ),
         );
     }
@@ -244,7 +244,7 @@ weather_station_distance_meters{{version="{VERSION}",source="org.example",locati
                 },
             ],
             &format!(
-                r##"# HELP weather_temperature_celsius prometheus-weathermen temperature.
+                r#"# HELP weather_temperature_celsius prometheus-weathermen temperature.
 # TYPE weather_temperature_celsius gauge
 # UNIT weather_temperature_celsius celsius
 weather_temperature_celsius{{version="{VERSION}",source="com.example",location="Another Name",city="",latitude="30.1000000",longitude="20.0123400"}} 15.5
@@ -254,7 +254,7 @@ weather_temperature_celsius{{version="{VERSION}",source="org.example",location="
 # UNIT weather_relative_humidity_ratio ratio
 weather_relative_humidity_ratio{{version="{VERSION}",source="com.example",location="Another Name",city="",latitude="30.1000000",longitude="20.0123400"}} 0.75
 weather_relative_humidity_ratio{{version="{VERSION}",source="org.example",location="My Name",city="Some City",latitude="20.1000000",longitude="10.0123400"}} 0.55
-# EOF"##
+# EOF"#
             ),
         );
     }
