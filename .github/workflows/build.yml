@@ -28,7 +28,7 @@ jobs:
     runs-on: ${{ matrix.host }}
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
 
       - name: Install ${{ matrix.toolchain }} toolchain
         uses: actions-rs/toolchain@v1.0.7
@@ -99,7 +99,7 @@ jobs:
     runs-on: ${{ matrix.host }}
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
 
       - name: Install ${{ matrix.toolchain }} toolchain
         uses: actions-rs/toolchain@v1.0.7
@@ -161,7 +161,7 @@ jobs:
     if: github.event_name != 'pull_request'
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
 
       - name: Download binaries
         uses: actions/download-artifact@v4.1.8
