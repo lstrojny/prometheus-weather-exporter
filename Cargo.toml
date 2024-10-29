@@ -10,7 +10,7 @@ repository = "https://github.com/lstrojny/prometheus-weathermen"
 rust-version = " 1.80.0"
 
 [dependencies]
-anyhow = "1.0.90"
+anyhow = "1.0.91"
 bcrypt = "0.15.1"
 clap-verbosity-flag = "2.2.2"
 const_format = "0.2.33"
