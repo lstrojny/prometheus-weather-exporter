@@ -45,7 +45,7 @@ version = "0.10.19"
 features = ["toml", "env"]
 
 [dependencies.geo]
-version = "0.28.0"
+version = "0.29.0"
 features = []
 default-features = false
 
