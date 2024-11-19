@@ -1,1 +1,2 @@
-absolute-paths-allowed-crates = ["log", "crate", "std"]
+absolute-paths-allowed-crates = ["log", "crate", "std", "core", "proc_macro"]
+absolute-paths-max-segments = 3

@@ -137,7 +137,7 @@ correctness = { level = "deny", priority = 1 }
 missing_const_for_fn = "warn"
 cargo = { level = "warn", priority = 1 }
 cargo_common_metadata = "warn"
-absolute_paths = "warn" # FIXME: broken in nightly, should be deny
+absolute_paths = "deny"
 alloc_instead_of_core = "deny"
 allow_attributes_without_reason = "deny"
 arithmetic_side_effects = "deny"
