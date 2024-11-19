@@ -14,7 +14,7 @@ use crate::providers::open_meteo::OpenMeteo;
 use crate::providers::open_weather::OpenWeather;
 use crate::providers::tomorrow::Tomorrow;
 use crate::providers::units::{Celsius, Meters, Ratio};
-use geo::{HaversineDistance, Point};
+use geo::{Distance, Haversine, Point};
 use reqwest::blocking::Client;
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
@@ -103,12 +103,15 @@ pub struct WeatherRequest<T> {
 
 pub type HttpRequestCache = http_request::Cache;
 
-fn calculate_distance(left: &Coordinates, right: &Coordinates) -> Meters {
-    let dist: f64 = Point::new(left.latitude.clone().into(), left.longitude.clone().into())
-        .haversine_distance(&Point::new(
-            right.latitude.clone().into(),
-            right.longitude.clone().into(),
-        ));
+fn to_point(coordinates: &Coordinates) -> Point<f64> {
+    let owned_coordinates = coordinates.to_owned();
+    (
+        owned_coordinates.latitude.into(),
+        owned_coordinates.longitude.into(),
+    )
+        .into()
+}
 
-    dist.into()
+fn calculate_distance(left: &Coordinates, right: &Coordinates) -> Meters {
+    Haversine::distance(to_point(left), to_point(right)).into()
 }

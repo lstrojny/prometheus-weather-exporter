@@ -134,7 +134,7 @@ fn is_measurement_file(file_name: &str) -> bool {
         .starts_with("produkt_zehn_now")
         && file_path
             .extension()
-            .map_or(false, |ext| ext.eq_ignore_ascii_case("txt"))
+            .is_some_and(|ext| ext.eq_ignore_ascii_case("txt"))
 }
 
 fn read_measurement_data_zip(buf: &[u8]) -> anyhow::Result<String> {
