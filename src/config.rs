@@ -63,7 +63,7 @@ impl Default for Config {
     }
 }
 
-pub fn read(config_file: PathBuf, log_level: Level) -> anyhow::Result<Config> {
+pub fn read(config_file: PathBuf, log_level: Option<Level>) -> anyhow::Result<Config> {
     info!("Reading config file {:?}", config_file);
 
     let config: Config = Figment::new()
@@ -72,9 +72,10 @@ pub fn read(config_file: PathBuf, log_level: Level) -> anyhow::Result<Config> {
         .merge((
             "http.log_level",
             match log_level {
-                Level::Trace | Level::Debug => RocketLogLevel::Debug,
-                Level::Info | Level::Warn => RocketLogLevel::Normal,
-                Level::Error => RocketLogLevel::Critical,
+                Some(Level::Trace | Level::Debug) => RocketLogLevel::Debug,
+                Some(Level::Info | Level::Warn) => RocketLogLevel::Normal,
+                Some(Level::Error) => RocketLogLevel::Critical,
+                None => RocketLogLevel::Off,
             },
         ))
         .merge(Env::prefixed("PROMW_").split("__"))

@@ -15,21 +15,10 @@ mod prometheus;
 mod providers;
 
 #[cfg(debug_assertions)]
-#[derive(Copy, Clone, Debug, Default)]
-struct DebugLevel;
-
-#[cfg(debug_assertions)]
-impl clap_verbosity_flag::LogLevel for DebugLevel {
-    fn default() -> Option<log::Level> {
-        Some(log::Level::Debug)
-    }
-}
-
-#[cfg(debug_assertions)]
-type DefaultLogLevel = DebugLevel;
+type DefaultLogLevel = clap_verbosity_flag::DebugLevel;
 
 #[cfg(not(debug_assertions))]
-type DefaultLogLevel = clap_verbosity_flag::WarnLevel;
+type DefaultLogLevel = clap_verbosity_flag::ErrorLevel;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -51,12 +40,11 @@ struct Args {
 async fn start_server() -> Rocket<Build> {
     let args = Args::parse();
 
-    let log_level = args
-        .verbose
-        .log_level()
-        .expect("Log level cannot be not available");
+    let log_level = args.verbose.log_level();
 
-    logging::init(log_level).expect("Logging successfully initialized");
+    if let Some(level) = log_level {
+        logging::init(level).expect("Logging successfully initialized");
+    }
 
     let config = read(args.config, log_level).unwrap_or_else(exit_if_handle_fatal);
 
