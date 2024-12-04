@@ -32,7 +32,7 @@ features = ["serde"]
 default-features = false
 
 [dependencies.clap]
-version = "4.5.21"
+version = "4.5.22"
 features = ["derive"]
 
 [dependencies.failsafe]
