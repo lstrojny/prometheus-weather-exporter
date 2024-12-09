@@ -27,7 +27,7 @@ version = "1.0.0"
 features = ["from", "display", "constructor", "into"]
 
 [dependencies.chrono]
-version = "0.4.38"
+version = "0.4.39"
 features = ["serde"]
 default-features = false
 
