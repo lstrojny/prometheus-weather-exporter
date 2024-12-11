@@ -80,22 +80,24 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { desc: arm-mac,                    target: aarch64-apple-darwin,               host: macos-13,         profile: release,     toolchain: stable }
-          - { desc: arm-mac-dbg,                target: aarch64-apple-darwin,               host: macos-13,         profile: debug,       toolchain: stable }
-          - { desc: intel-mac,                  target: x86_64-apple-darwin,                host: macos-13,         profile: release,     toolchain: stable }
-          - { desc: intel-mac-dbg,              target: x86_64-apple-darwin,                host: macos-13,         profile: debug,       toolchain: stable }
-          - { desc: arm-linux,                  target: armv7-unknown-linux-gnueabihf,      host: ubuntu-22.04,     profile: release,     toolchain: stable }
-          - { desc: arm-linux-dbg,              target: armv7-unknown-linux-gnueabihf,      host: ubuntu-22.04,     profile: debug,       toolchain: stable }
-          - { desc: arm-linux-static,           target: armv7-unknown-linux-musleabihf,     host: ubuntu-22.04,     profile: release,     toolchain: stable }
-          - { desc: arm-linux-static-dbg,       target: armv7-unknown-linux-musleabihf,     host: ubuntu-22.04,     profile: debug,       toolchain: stable }
-          - { desc: arm64-linux,                target: aarch64-unknown-linux-gnu,          host: ubuntu-22.04,     profile: release,     toolchain: stable }
-          - { desc: arm64-linux-dbg,            target: aarch64-unknown-linux-gnu,          host: ubuntu-22.04,     profile: debug,       toolchain: stable }
-          - { desc: arm64-linux-static,         target: aarch64-unknown-linux-musl,         host: ubuntu-22.04,     profile: release,     toolchain: stable }
-          - { desc: arm64-linux-static-dbg,     target: aarch64-unknown-linux-musl,         host: ubuntu-22.04,     profile: debug,       toolchain: stable }
-          - { desc: x86_64-linux,               target: x86_64-unknown-linux-gnu,           host: ubuntu-22.04,     profile: release,     toolchain: stable }
-          - { desc: x86_64-linux-dbg,           target: x86_64-unknown-linux-gnu,           host: ubuntu-22.04,     profile: debug,       toolchain: stable }
-          - { desc: x86_64-linux-static,        target: x86_64-unknown-linux-musl,          host: ubuntu-22.04,     profile: release,     toolchain: stable }
-          - { desc: x86_64-linux-static-dbg,    target: x86_64-unknown-linux-musl,          host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          #- { desc: arm-mac,                    target: aarch64-apple-darwin,               host: macos-13,         profile: release,     toolchain: stable }
+          #- { desc: arm-mac-dbg,                target: aarch64-apple-darwin,               host: macos-13,         profile: debug,       toolchain: stable }
+          #- { desc: intel-mac,                  target: x86_64-apple-darwin,                host: macos-13,         profile: release,     toolchain: stable }
+          #- { desc: intel-mac-dbg,              target: x86_64-apple-darwin,                host: macos-13,         profile: debug,       toolchain: stable }
+          #- { desc: arm-linux,                  target: armv7-unknown-linux-gnueabihf,      host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          #- { desc: arm-linux-dbg,              target: armv7-unknown-linux-gnueabihf,      host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          #- { desc: arm-linux-static,           target: armv7-unknown-linux-musleabihf,     host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          #- { desc: arm-linux-static-dbg,       target: armv7-unknown-linux-musleabihf,     host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          #- { desc: arm64-linux,                target: aarch64-unknown-linux-gnu,          host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          #- { desc: arm64-linux-dbg,            target: aarch64-unknown-linux-gnu,          host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          #- { desc: arm64-linux-static,         target: aarch64-unknown-linux-musl,         host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          #- { desc: arm64-linux-static-dbg,     target: aarch64-unknown-linux-musl,         host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          #- { desc: x86_64-linux,               target: x86_64-unknown-linux-gnu,           host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          #- { desc: x86_64-linux-dbg,           target: x86_64-unknown-linux-gnu,           host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          #- { desc: x86_64-linux-static,        target: x86_64-unknown-linux-musl,          host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          #- { desc: x86_64-linux-static-dbg,    target: x86_64-unknown-linux-musl,          host: ubuntu-22.04,     profile: debug,       toolchain: stable }
+          - { desc: x86_64-windows,         target: x86_64-pc-windows-msvc,            host: ubuntu-22.04,     profile: release,     toolchain: stable }
+          - { desc: x86_64-windows-dbg,     target: x86_64-pc-windows-msvc,            host: ubuntu-22.04,     profile: debug,       toolchain: stable }
     runs-on: ${{ matrix.host }}
     steps:
       - name: Checkout source
