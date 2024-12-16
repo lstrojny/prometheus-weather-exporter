@@ -99,7 +99,7 @@ features = []
 default-features = false
 
 [dependencies.zip]
-version = "2.2.1"
+version = "2.2.2"
 features = ["deflate-miniz"]
 default-features = false
 
