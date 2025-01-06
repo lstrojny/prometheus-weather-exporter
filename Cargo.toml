@@ -54,7 +54,7 @@ version = "0.4.21"
 default-features = false
 
 [dependencies.moka]
-version = "0.12.7"
+version = "0.12.10"
 features = ["sync"]
 default-features = false
 
