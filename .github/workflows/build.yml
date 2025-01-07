@@ -242,7 +242,7 @@ jobs:
         id: download
 
       - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2.2.0
+        uses: softprops/action-gh-release@v2.2.1
         with:
           fail_on_unmatched_files: true
           # Nested because for each archive a sub-folder of the same name is create to avoid conflicts when downloading
