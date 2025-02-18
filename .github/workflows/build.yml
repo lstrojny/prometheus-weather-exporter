@@ -39,7 +39,7 @@ jobs:
           override: true
 
       - name: Set up cargo cache
-        uses: actions/cache@v4.2.0
+        uses: actions/cache@v4.2.1
         continue-on-error: false
         with:
           path: |
@@ -110,7 +110,7 @@ jobs:
           components: rustfmt, clippy
 
       - name: Set up cargo cache
-        uses: actions/cache@v4.2.0
+        uses: actions/cache@v4.2.1
         continue-on-error: false
         with:
           path: |
